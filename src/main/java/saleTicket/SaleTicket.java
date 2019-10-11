@@ -2,7 +2,7 @@ package saleTicket;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-
+//多线程总结: 线程 控制 资源类
 //资源类
 class Ticket{
 	//方式一 synchronized 同步方法
@@ -34,7 +34,7 @@ class Ticket{
 public class SaleTicket {
 	public static void main(String[] args) {
 		Ticket ticket = new Ticket();
-		//lamda表达式 拷贝小括号,写死右箭头,落地大括号
+		//lamda表达式总结: 拷贝小括号,写死右箭头,落地大括号
 		new Thread(() -> {for(int i = 1 ; i < 40 ; i++) ticket.sale();}, "窗口1").start();
 		new Thread(() -> {for(int i = 1 ; i < 40 ; i++) ticket.sale();}, "窗口2").start();
 		new Thread(() -> {for(int i = 1 ; i < 40 ; i++) ticket.sale();}, "窗口3").start();
